@@ -1,0 +1,40 @@
+<!-- <table cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <td *ngFor="let column of displayedColumns">{{ column }}</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of visibleItems.items">
+      <td>test@testa.me</td>
+      <td>Maxime Nienow</td>
+      <td>Adminsda.a</td>
+    </tr>
+  </tbody>
+</table> -->
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let columnHead of tableConfig.columns">{{ columnHead.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let columnData of visibleItems.items" (click)="onRowClickedEvent(columnData)">
+      <td *ngFor="let columnHead of tableConfig.columns">
+        <div *ngIf="columnHead.dataProperty !== 'ROW_ACTIONS'; else action_content">
+          {{ columnData[columnHead.dataProperty] }}
+        </div>
+        <ng-template #action_content>
+          <div  class="action">
+            <a  *ngFor="let action of tableConfig.rowActions" (click)="onRowActionClicked(action.actionIdToReturn, columnData)" >
+              {{ action.label }}
+
+            </a>
+          </div>
+
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-pagination [total]="visibleItems.total" [formControl]="paginationControl"> </app-pagination>

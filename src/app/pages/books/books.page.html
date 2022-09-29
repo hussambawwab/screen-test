@@ -1,0 +1,23 @@
+
+<div class="action-section">
+  <button (click)="onAddCategoriesClicked()" class="primary-btn" >Add Book</button>
+
+</div>
+<div class="action-section">
+  <div class="select-dropdown">
+    <select [(ngModel)]="selectedCategory" (ngModelChange)="onSelectionChange()" name="sel2">
+      <option [value]="null" >All</option>
+      <option [value]="category.id" *ngFor="let category of categoriesList">{{category.name}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="table" *ngIf="!isLoading">
+  <app-table
+    [tableContent]="dataSource.filteredData"
+    [tableConfig]="tableConfig"
+    (startRowAction)="onRowActionClicked($event)"
+    (onRowClicked)="onRowClicked($event)"
+
+  ></app-table>
+</div>

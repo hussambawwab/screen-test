@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup">
+  <div class="form-field">
+    <input type="text" formControlName="name" placeholder="Name" required />
+    <div *ngIf="name.touched && name.invalid && name.hasError('required')" class="form-field-error">
+      You must enter a value
+    </div>
+  </div>
+  <div class="form-field">
+    <div class="select-dropdown">
+      <select formControlName="categoryId"  name="sel2">
+        <option [value]="category.id" *ngFor="let category of categoriesList">{{category.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="categoryId.touched && categoryId.invalid && categoryId.hasError('required')" class="form-field-error">
+      You must enter a value
+    </div>
+  </div>
+  <button class="primary-btn" (click)="onSaveClicked()">Save</button>
+</form>

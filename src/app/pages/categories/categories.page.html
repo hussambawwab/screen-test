@@ -1,0 +1,12 @@
+<div class="action-section">
+  <button (click)="onAddCategoriesClicked()" class="primary-btn" >Add Categories</button>
+
+</div>
+
+<div class="table" *ngIf="!isLoading">
+  <app-table
+    [tableContent]="dataSource"
+    [tableConfig]="tableConfig"
+    (startRowAction)="onRowActionClicked($event)"
+  ></app-table>
+</div>

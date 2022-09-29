@@ -1,0 +1,37 @@
+<div class="layout-login">
+  <div class="image"></div>
+  <div class="sign-in">
+    <h1>Sign In</h1>
+    <form [formGroup]="formGroup">
+      <div class="form-field" id="username-container">
+        <input type="text" formControlName="emailAddress" placeholder="Email address" required />
+        <div
+          *ngIf="emailAddress.touched && emailAddress.invalid && emailAddress.hasError('required')"
+          class="form-field-error"
+          id="username-error-msg"
+        >
+          You must enter a value
+        </div>
+        <div
+          *ngIf="emailAddress.touched && emailAddress.invalid && emailAddress.hasError('email')"
+          class="form-field-error"
+        >
+          Not a valid email
+        </div>
+      </div>
+      <div class="form-field" id="password-container">
+        <input type="password" formControlName="password" placeholder="Password" required />
+
+        <div
+          *ngIf="password.touched && password.invalid && password.hasError('required')"
+          class="form-field-error"
+          id="password-error-msg"
+        >
+          You must enter a value
+        </div>
+      </div>
+      <a [routerLink]="['/auth/register']">Creat Your Account</a>
+      <button class="primary-btn" (click)="onSignInClicked()" id="login-btn-container">Login</button>
+    </form>
+  </div>
+</div>

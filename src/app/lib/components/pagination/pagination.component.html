@@ -1,0 +1,23 @@
+<div style="display: flex; justify-content: end;">
+
+
+<div class="pagination">
+  <button [disabled]="value.page === 1" (click)="selectPage(1)" ><<</button>
+  <button [disabled]="value.page === 1" (click)="selectPage(value.page - 1)"><</button>
+  <select [ngModel]="value.pageSize" (ngModelChange)="selectPageSize($event)">
+    <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+  </select>
+  <button
+    *ngFor="let page of visiblePages"
+    [ngClass]="value.page === page ? 'selected' : ''"
+    (click)="selectPage(page)"
+  >
+    {{ page }}
+  </button>
+  <button [disabled]="value.page === totalPages" (click)="selectPage(value.page + 1)">></button>
+  <button [disabled]="value.page === totalPages" (click)="selectPage(totalPages)">>></button>
+
+</div>
+
+
+</div>

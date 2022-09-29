@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  margin-bottom: 4px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+button {
+  border: none;
+  border-radius: 2px;
+  background-color: #F6F8FF;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #636983;
+  cursor: pointer;
+}
+button[disabled] {
+  background-color: lightgray;
+  cursor: auto;
+}
+button.selected {
+  background-color: #1f74ff;
+  color: #fff;
+  cursor: auto;
+}
+button:not(:last-child) {
+  margin-right: 4px;
+}
+select {
+  display: block;
+  border: 1px solid darkslategrey;
+  border-radius: 2px;
+  width: 38px;
+  height: 30px;
+  margin: 0 6px;
+}

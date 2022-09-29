@@ -1,0 +1,72 @@
+<div class="layout-login">
+  <div class="image"></div>
+  <div class="sign-in">
+    <h1>Sign up</h1>
+    <form [formGroup]="formGroup">
+      <div class="form-field" id="firstName-container">
+        <input type="text" formControlName="firstName" placeholder="First name" required />
+        <div
+          *ngIf="firstName.touched && firstName.invalid && firstName.hasError('required')"
+          class="form-field-error"
+          id="firstName-error-msg"
+        >
+          You must enter a value
+        </div>
+      </div>
+      <div class="form-field" id="lastName-container">
+        <input type="text" formControlName="lastName" placeholder="Last name" required />
+        <div
+          *ngIf="lastName.touched && lastName.invalid && lastName.hasError('required')"
+          class="form-field-error"
+          id="lastName-error-msg"
+        >
+          You must enter a value
+        </div>
+      </div>
+      <div class="form-field" id="username-container">
+        <input type="text" formControlName="emailAddress" placeholder="Email address" required />
+        <div
+          *ngIf="emailAddress.touched && emailAddress.invalid && emailAddress.hasError('required')"
+          class="form-field-error"
+          id="username-error-msg"
+        >
+          You must enter a value
+        </div>
+        <div
+          *ngIf="emailAddress.touched && emailAddress.invalid && emailAddress.hasError('email')"
+          class="form-field-error"
+        >
+          Not a valid email
+        </div>
+      </div>
+      <div class="form-field" id="password-container">
+        <input type="password" formControlName="password" placeholder="Password" required />
+        <div
+          *ngIf="password.touched && password.invalid && password.hasError('required')"
+          class="form-field-error"
+          id="password-error-msg"
+        >
+          You must enter a value
+        </div>
+        <div
+          *ngIf="password.touched && password.invalid && password.hasError('pattern')"
+          class="form-field-error"
+        >
+          Password minimum length should be 8 characters with at least 1 small letter, 1 capital letter, 1
+          number and 1 special character
+        </div>
+      </div>
+      <div class="form-field">
+        <input type="password" formControlName="confirmPassword" placeholder="Confirm password" required />
+        <div
+          *ngIf="password.touched && password.invalid && password.hasError('required')"
+          class="form-field-error"
+          id="confirmPassword-error-msg"
+        >
+          You must enter a value
+        </div>
+      </div>
+    </form>
+    <button class="primary-btn"  id="login-btn-container" (click)="onClickSignUp()">Sign up</button>
+  </div>
+</div>

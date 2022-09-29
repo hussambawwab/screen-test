@@ -1,0 +1,15 @@
+.action-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.table{
+  width: 60%;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .table {
+    width: 90%;
+  }
+}

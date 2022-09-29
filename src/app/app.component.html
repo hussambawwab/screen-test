@@ -1,0 +1,9 @@
+<app-navbar *ngIf="!hideNavBar"></app-navbar>
+
+ <app-layout-horizontal *ngIf="isLoggedIn$ | async; else notAuthorized">
+  <router-outlet></router-outlet>
+</app-layout-horizontal>
+
+<ng-template #notAuthorized>
+  <router-outlet></router-outlet>
+</ng-template>
