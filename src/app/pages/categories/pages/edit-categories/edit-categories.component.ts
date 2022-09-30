@@ -46,7 +46,6 @@ export class EditCategoriesComponent implements OnInit {
   }
   getCatigorybyId() {
     this._categoriesService.getCategoryById(this.categoryId).subscribe((data) => {
-      console.log(data);
       this.name.setValue(data?.name);
       this.total.setValue(data?.total);
     });

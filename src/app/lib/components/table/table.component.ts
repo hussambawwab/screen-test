@@ -41,7 +41,6 @@ export class TableComponent implements OnInit, OnChanges {
 
   public visibleItems!: PaginatedResponse<any>;
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes['tableContent']) {
       if (!changes['tableContent'].firstChange) {
         this.onPageChange({

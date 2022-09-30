@@ -13,9 +13,8 @@ export class JwtInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
-    console.log('intercept')
     const isLoggedIn = true;
-    const token = 'ABC';
+    const token = '';
     const isApiUrl = request.url.startsWith('https://jsonplaceholder.typicode.com');
 
     if (isLoggedIn && isApiUrl) {

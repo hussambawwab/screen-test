@@ -1,9 +1,11 @@
+.table-container{
+
+  box-shadow: 0 25px 20px -25px rgb(0 0 0 / 10%);
+}
 table {
   width: 100%;
   font-size: 16px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 25px 20px -25px rgb(0 0 0 / 10%);
+
 }
 thead {
   border-spacing: 0;

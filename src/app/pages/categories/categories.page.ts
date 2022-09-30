@@ -38,7 +38,6 @@ export class CategoriesPage implements OnInit, OnDestroy {
     this.subscription.add(
       this._categoriesService.getCategories().subscribe({
         next: (data: any[]) => {
-          console.log(data);
           this.dataSource = [...data];
           this.isLoading = false;
         },
@@ -62,9 +61,7 @@ export class CategoriesPage implements OnInit, OnDestroy {
   }
   deleteCategoryClicked(rowData: Category) {
     if (rowData.id)
-      this._categoriesService.deleteCategories(rowData.id).then(() => {
-        console.log('Deleted');
-      });
+      this._categoriesService.deleteCategories(rowData.id);
   }
   onAddCategoriesClicked() {
     this.router.navigate(['/categories/create-categories']);
