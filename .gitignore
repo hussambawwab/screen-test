@@ -1,0 +1,91 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+
+@hussambawwab
+juanmesa2097
+/
+angular-boilerplate
+Public template
+Code
+Issues
+1
+Pull requests
+10
+Actions
+Projects
+Security
+Insights
+angular-boilerplate/.gitignore
+@juanmesa2097
+juanmesa2097 feat: update Angular version
+Latest commit 4e0cbb9 on Dec 10, 2021
+ History
+ 1 contributor
+47 lines (40 sloc)  653 Bytes
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+# .vscode/*
+# !.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+# !.vscode/extensions.json
+.history/*
+
+# misc
+/.angular/cache
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+angular-boilerplate/.gitignore at main · juanmesa2097/angular-boilerplate

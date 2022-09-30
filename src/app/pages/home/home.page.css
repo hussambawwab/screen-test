@@ -1,5 +1,4 @@
 .container {
-  height: calc(100vh - 115px);
   display: flex;
 
 }
@@ -18,7 +17,7 @@
   width: 33.3333%;
   padding: 1em;
   flex: 1;
-
+background-color: #fff;
 }
 .card > .card-title{
 	font-size: 30px;

@@ -1,101 +1,122 @@
-.nav {
-  height: 50px;
-  width: 100%;
-   background: #54657b;
-  position: relative;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  position: absolute;
-  top: 0;
-
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5%;
+  align-items: center;
+  background: #18283B;
 }
 
-.nav > .nav-header {
-  display: inline;
-}
-
-.nav > .nav-header > .nav-title {
-  display: inline-block;
+.logo {
+  color: #FFF;
   font-size: 22px;
-  color: #fff;
-  padding: 10px 10px 10px 10px;
 }
-.nav > .nav-header > .nav-title >a {
+
+ul {
+  list-style: none;
+}
+
+ul li {
   display: inline-block;
-  text-decoration: none;
-  color: #efefef;
-  cursor: pointer;
-
 }
 
-.nav > .nav-btn {
+ul li a {
+  text-decoration: none;
+  color: #8291A5;
+  padding: 8px 30px;
+  border-radius: 7px;
+  transition: all .3s ease;
+}
+
+ul li a:hover,
+ul li a.active {
+  color: #FFF;
+  background: #0075FF;
+}
+
+#icon {
+  background-color: #0075FF;
+  padding: 5px 7px 3px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#icon svg {
+  color: #FFF;
+  height: 28px;
+  transition: all .3s ease;
+}
+
+#icon:hover {
+  background: #FFF;
+}
+
+#icon:hover svg {
+  color: #0075FF;
+}
+
+#checkbox,
+#icon {
   display: none;
 }
-
-.nav > .nav-links {
-  display: inline;
-  float: right;
+/* Youtube link */
+.link {
+  position: fixed;
+  background-color: #D12322;
+  padding: 23px 40px;
+  right: -100px;
+  border-radius: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: rotate(-90deg);
   font-size: 18px;
-}
-
-.nav > .nav-links > a {
-  display: inline-block;
-  padding: 13px 10px 13px 10px;
+  font-weight: 500;
+  color: #FFF;
   text-decoration: none;
-  color: #efefef;
-  cursor: pointer;
+  text-transform: capitalize;
+  transition: all .1s ease-in-out;
 }
 
-.nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+.link i {
+  padding-left: 7px;
 }
 
-.nav > #nav-check {
-  display: none;
+.link:hover {
+  text-decoration: underline;
+  background-color: black;
 }
+@media screen and (max-width: 768px) {
+  nav {
+      border-bottom: 1px solid #455468;
+  }
 
-@media (max-width: 600px) {
-  .nav > .nav-btn {
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
+  ul {
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 71px);
+      background-color: #18283B;
+      left: 0;
+      top: 0;
+      text-align: center;
+      display: none;
+      margin-top: 71px;
   }
-  .nav > .nav-btn > label {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    padding: 13px;
+
+  ul li {
+      display: block;
+      padding: 10px 15px;
   }
-  .nav > .nav-btn > label:hover,
-  .nav #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
+
+  ul li a {
+      display: block;
+      padding: 10px 0;
   }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #eee;
+
+  #icon {
+      display: block;
   }
-  .nav > .nav-links {
-    position: absolute;
-    display: block;
-    width: 100%;
-    background-color: #333;
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: 0px;
-  }
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
-  }
-  .nav > #nav-check:not(:checked) ~ .nav-links {
-    height: 0px;
-  }
-  .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+
+  #checkbox:checked~ul {
+      display: block;
   }
 }

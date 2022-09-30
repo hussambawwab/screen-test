@@ -28,7 +28,6 @@ export class HomePage implements OnInit, OnDestroy {
     this.subscription.add(
       this._categoriesService.getCategories().subscribe({
         next: (data: any[]) => {
-          console.log(data);
           this.categoriesCount = data.length;
         },
       }),

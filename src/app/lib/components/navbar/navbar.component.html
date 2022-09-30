@@ -1,19 +1,18 @@
-<div class="nav">
-  <input type="checkbox" id="nav-check" />
-  <div class="nav-header">
-    <div class="nav-title"><a [routerLink]="['/home']">LMS</a></div>
-  </div>
 
+<nav>
+  <div class="logo">LMS</div>
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox" id="icon">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+  </label>
+  <ul>
+      <li ><a [routerLink]="['/home']" [routerLinkActive]="'active'" >Home</a></li>
+      <li><a [routerLink]="['/categories']" *ngIf="isLoggedIn$ | async; " [routerLinkActive]="'active'">Categories</a></li>
+      <li><a [routerLink]="['/books']" *ngIf="isLoggedIn$ | async; " [routerLinkActive]="'active'">Books</a></li>
+      <li><a (click)="onClickSignOut()" *ngIf="isLoggedIn$ | async; else notAuthorized" >Logout</a></li>
+      <ng-template #notAuthorized>
+        <li><a [routerLink]="['/auth/login']" *ngIf="isLoggedIn$ | async; ">Login</a></li>
 
-  <div class="nav-links" *ngIf="isLoggedIn$ | async; else notAuthorized">
-    <a [routerLink]="['/home']">Home</a>
-    <a [routerLink]="['/categories']">Categories</a>
-    <a [routerLink]="['/books']">Books</a>
-    <a (click)="onClickSignOut()">Logout</a>
-  </div>
-  <ng-template #notAuthorized>
-    <div class="nav-links">
-      <a [routerLink]="['/auth/login']">Login</a>
-    </div>
-  </ng-template>
-</div>
+      </ng-template>
+  </ul>
+</nav>

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { REPOSITORY_URL } from '@lib/constants';
 import { AuthService } from '@lib/services';
 import { Observable } from 'rxjs';
 
@@ -14,7 +13,6 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent implements OnInit {
-  readonly repositoryURL = REPOSITORY_URL;
   isLoggedIn$!: Observable<boolean>;
 
   constructor(private _router: Router, private _authService: AuthService) {}

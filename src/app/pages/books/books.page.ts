@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,7 +29,7 @@ export class BooksPage implements OnInit, OnDestroy {
   isLoading = true;
   subscription: Subscription = new Subscription();
   categoriesList: any[] = [];
-  selectedCategory: any;
+  selectedCategory: any="";
 
   constructor(
     private _booksService: BooksService,
@@ -64,9 +65,7 @@ export class BooksPage implements OnInit, OnDestroy {
       }),
     );
   }
-  onRowActionClicked($event: any) {
-    console.log();
-  }
+
   onSelectionChange() {
     if (this.selectedCategory !=='null') {
       this.dataSource.filteredData = this.dataSource.data.filter(

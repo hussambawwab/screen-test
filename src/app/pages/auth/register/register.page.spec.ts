@@ -99,7 +99,7 @@ describe('Register Component Shallow Test', () => {
     }),
   );
 
-  it('created a form with username and password input and Register button', () => {
+  it('created a form with firstName , lastName , email, password,confirm password input and Register button', () => {
     const usernameContainer = fixture.debugElement.nativeElement.querySelector('#username-container');
     const passwordContainer = fixture.debugElement.nativeElement.querySelector('#password-container');
     const loginBtnContainer = fixture.debugElement.nativeElement.querySelector('#login-btn-container');
@@ -115,14 +115,49 @@ describe('Register Component Shallow Test', () => {
     expect(confirmPasswordContainer).toBeDefined();
 
   });
-
-  it('Display Email Address Error Msg when Email Address is blank', () => {
+  it('Display First name Error Msg when Email Address is blank', () => {
     updateForm(
       blankUserInfo.firstName,
+      validUserInfo.lastName,
+      validUserInfo.username,
+      validUserInfo.password,
+      validUserInfo.confirmPassword,
+    );
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    fixture.detectChanges();
+
+    const usernameErrorMsg = fixture.debugElement.nativeElement.querySelector('#firstName-error-msg');
+    expect(usernameErrorMsg).toBeDefined();
+    expect(usernameErrorMsg.innerHTML).toContain('You must enter a value');
+  });
+  it('Display Last  name Error Msg when Email Address is blank', () => {
+    updateForm(
+      validUserInfo.firstName,
       blankUserInfo.lastName,
+      validUserInfo.username,
+      validUserInfo.password,
+      validUserInfo.confirmPassword,
+    );
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    fixture.detectChanges();
+
+    const usernameErrorMsg = fixture.debugElement.nativeElement.querySelector('#lastName-error-msg');
+    expect(usernameErrorMsg).toBeDefined();
+    expect(usernameErrorMsg.innerHTML).toContain('You must enter a value');
+  });
+  it('Display Email Address Error Msg when Email Address is blank', () => {
+    updateForm(
+      validUserInfo.firstName,
+      validUserInfo.lastName,
       blankUserInfo.username,
-      blankUserInfo.password,
-      blankUserInfo.confirmPassword,
+      validUserInfo.password,
+      validUserInfo.confirmPassword,
     );
     fixture.detectChanges();
 
@@ -214,7 +249,6 @@ describe('Register Component Shallow Test', () => {
       }).compileComponents();
 
       fixture = TestBed.createComponent(RegisterPage);
-      // router = TestBed.get(Router);
 
       loginSpy = authServiceSpy.SignIn.and.returnValue(Promise.resolve(testUserData));
     }));
@@ -248,14 +282,15 @@ describe('Register Component Shallow Test', () => {
       button.click();
       advance(fixture);
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       loginSpy = authServiceSpy.signUp.and.returnValue(Promise.resolve(testUserData));
       advance(fixture);
 
       expect(routerSpy.navigateByUrl).toHaveBeenCalled();
       const navArgs = routerSpy.navigateByUrl.calls.first().args[0];
-      // expecting to navigate to id of the component's first hero
       expect(navArgs).toBe('/home', 'should nav to Home Page');
     }));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function advance(f: ComponentFixture<any>) {
       tick();
       f.detectChanges();

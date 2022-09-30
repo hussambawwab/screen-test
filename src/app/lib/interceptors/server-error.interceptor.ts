@@ -15,7 +15,6 @@ export class ServerErrorInterceptor implements HttpInterceptor {
   constructor(private _router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('error')
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if ([401, 403].includes(error.status)) {

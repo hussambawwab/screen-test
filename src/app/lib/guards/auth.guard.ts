@@ -8,6 +8,7 @@ import { AuthService } from '@lib/services';
 export class AuthGuard implements CanLoad {
   constructor(private _router: Router, private _authService: AuthService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   canLoad(_: Route, segments: UrlSegment[]): boolean {
     const isLoggedIn = this._authService.isLoggedInSubject;
     if (isLoggedIn) {

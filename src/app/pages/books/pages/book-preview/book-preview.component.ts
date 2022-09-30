@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,6 +16,5 @@ export class BookPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.route.snapshot.data['data'];
-    console.log(this.data);
   }
 }

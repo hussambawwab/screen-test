@@ -1,8 +1,15 @@
-body{
-  font-family: 'Open Sans', sans-serif;
+* {
   margin: 0;
-  font-size: 16px;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  background: #D7DDE5;
+  font-family: "Roboto", sans-serif;
+}
+
 .form-field-error{
   color: red;
   font-size: 0.8rem;
@@ -31,7 +38,7 @@ body{
 input[type="number"],
 input[type="text"],
 input[type="password"] {
-  padding: 10px 0;
+  padding: 10px 12px;
   font-size: 1.2rem;
   border: none;
   border-bottom: solid 1px #000;
